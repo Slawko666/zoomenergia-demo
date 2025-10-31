@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zoom Energia — Fotowoltaika i pompy ciepła | Bezpłatna wycena</title>
+  <meta name="description" content="Zoom Energia - instalacje fotowoltaiczne, pomoc w dofinansowaniu i serwis. Zamów bezpłatną wycenę." />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="logo.svg" alt="Zoom Energia logo" class="logo">
+        <div class="brand-text">
+          <div class="brand-name">Zoom Energia</div>
+          <div class="brand-sub">Fotowoltaika • Pompy ciepła</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#oferta">Oferta</a>
+        <a href="#realizacje">Realizacje</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt" class="cta">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <span class="badge">Bezpłatna wycena</span>
+          <h1>Zainstaluj fotowoltaikę i oszczędzaj od pierwszego dnia</h1>
+          <p class="lead">Kompleksowe instalacje PV i pompy ciepła — projekt, montaż i serwis. Pomagamy w dofinansowaniu.</p>
+          <div class="hero-ctas">
+            <button class="btn primary" id="openModalBtn">Zamów bezpłatną wycenę</button>
+            <a href="#realizacje" class="btn ghost">Zobacz realizacje</a>
+          </div>
+
+          <div class="quick-features">
+            <div class="feature"><strong>Analiza opłacalności</strong><span>Spersonalizowana wycena</span></div>
+            <div class="feature"><strong>Certyfikowani montażyści</strong><span>Gwarancja i serwis</span></div>
+            <div class="feature"><strong>Wsparcie dotacji</strong><span>Pomagamy w dofinansowaniu</span></div>
+            <div class="feature"><strong>Finansowanie</strong><span>Raty dopasowane do Ciebie</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-aside card">
+          <form id="leadForm" action="https://formsubmit.co/kontakt@zoomenergia.pl" method="POST">
+            <!-- formsubmit.co forwards to the email; after first submit you must confirm by clicking link sent to that email -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="thank-you.html">
+            <h3>Otrzymaj bezpłatną wycenę</h3>
+            <label><input type="text" name="name" placeholder="Imię i nazwisko" required></label>
+            <label><input type="tel" name="phone" placeholder="Telefon (np. 600123456)" required></label>
+            <label><input type="email" name="email" placeholder="E-mail (opcjonalnie)"></label>
+            <label>
+              <select name="service">
+                <option value="fotowoltaika">Fotowoltaika</option>
+                <option value="pompa">Pompy ciepła</option>
+                <option value="hybryda">Hybryda / Magazyn energii</option>
+              </select>
+            </label>
+            <button class="btn primary" type="submit">Wyślij i umów wycenę</button>
+            <div class="muted">Dane nie będą udostępniane. Otrzymasz kontakt w ciągu 24h (testowo przez formsubmit.co).</div>
+          </form>
+
+          <div class="phone-card">
+            <div class="phone-ico">☎</div>
+            <div>
+              <div class="strong">Zadzwoń teraz</div>
+              <div class="muted">+48 600 123 456</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="oferta" class="container section">
+      <h2>Nasza oferta</h2>
+      <p class="muted">Kompleksowe rozwiązania dla domów i firm</p>
+      <div class="services">
+        <article class="service">
+          <h3>Fotowoltaika</h3>
+          <p>Projekt, montaż i serwis instalacji PV — optymalizacja produkcji i monitorowanie.</p>
+        </article>
+        <article class="service">
+          <h3>Pompy ciepła</h3>
+          <p>Wydajne pompy ciepła powietrze-woda oraz gruntowe rozwiązania.</p>
+        </article>
+        <article class="service">
+          <h3>Magazyny energii</h3>
+          <p>Systemy magazynowania i integracja hybrydowa.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="banner-doff container">
+      <div class="banner-inner">
+        <div class="banner-text">
+          <strong>Skorzystaj z programu Mój Prąd 6.0</strong>
+          <p>Obniż koszt instalacji dzięki dofinansowaniom — pomożemy w formalnościach.</p>
+        </div>
+        <div><a href="#kontakt" class="btn primary">Sprawdź warunki</a></div>
+      </div>
+    </section>
+
+    <section id="calculator" class="container section">
+      <h2>Kalkulator: ile możesz zaoszczędzić?</h2>
+      <p class="muted">Prosty kalkulator szacunkowy — wprowadź swoje średnie miesięczne zużycie energii (kWh).</p>
+      <div class="calculator card">
+        <div class="calc-row">
+          <label>Miesięczne zużycie energii (kWh): <input type="number" id="kwh" min="0" value="300"></label>
+        </div>
+        <div class="calc-row">
+          <label>Cena za 1 kWh (zł): <input type="number" id="price" step="0.01" value="0.85"></label>
+        </div>
+        <div class="calc-row">
+          <label>Roczna produkcja PV (% pokrycia): 
+            <select id="coverage">
+              <option value="0.6">60%</option>
+              <option value="0.7" selected>70%</option>
+              <option value="0.8">80%</option>
+            </select>
+          </label>
+        </div>
+        <div class="calc-row results">
+          <div>Szacowane oszczędności roczne: <span id="savings">—</span> zł</div>
+          <div class="muted small">Przybliżone wartości — ostateczna wycena po audycie.</div>
+        </div>
+        <div class="calc-row">
+          <button class="btn primary" id="calcBtn">Oblicz</button>
+          <button class="btn ghost" id="autoFill">Wstaw przykładowe dane</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="realizacje" class="container section">
+      <h2>Wybrane realizacje</h2>
+      <div class="cases">
+        <article class="case card">
+          <div class="case-img"></div>
+          <h4>Dom jednorodzinny — 6.5 kWp</h4>
+          <p class="muted">Roczne oszczędności ~4 200 zł. Montaż 2 dni.</p>
+        </article>
+        <article class="case card">
+          <div class="case-img"></div>
+          <h4>Firma produkcyjna — 35 kWp</h4>
+          <p class="muted">Redukcja kosztów energii o 60%.</p>
+        </article>
+        <article class="case card">
+          <div class="case-img"></div>
+          <h4>Hybryda PV + magazyn — 10 kWp</h4>
+          <p class="muted">Niższe opłaty nocne i stabilne zasilanie.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="why" class="container section">
+      <h2>Dlaczego warto wybrać nas?</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-ico">✓</div>
+          <h4>Certyfikowani instalatorzy</h4>
+          <p class="muted">Doświadczenie i szkolenia.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-ico">⚙</div>
+          <h4>Pełne wsparcie dotacyjne</h4>
+          <p class="muted">Pomagamy w wnioskach i formalnościach.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-ico">⏱</div>
+          <h4>Szybki montaż</h4>
+          <p class="muted">Zwykle 1–3 dni dla instalacji domowej.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-ico">🔒</div>
+          <h4>Gwarancja i serwis</h4>
+          <p class="muted">Opieka posprzedażowa i monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="container section">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>Jak długo trwa montaż?</h4>
+          <p class="muted">Zwykle 1–3 dni dla instalacji domowej.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Czy pomagacie w dofinansowaniu?</h4>
+          <p class="muted">Tak — obsługujemy proces aplikacyjny.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Jakie są orientacyjne koszty?</h4>
+          <p class="muted">Koszty zależą od mocy i warunków; podajemy widełki podczas wyceny.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Co obejmuje serwis?</h4>
+          <p class="muted">Przeglądy, naprawy i monitoring produkcji.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container section contact-section">
+      <h2>Kontakt</h2>
+      <div class="contact-grid card">
+        <div>
+          <strong>Zoom Energia</strong>
+          <p class="muted">ul. Przykładowa 12, 90-001 Łódź</p>
+          <p>Tel: <a href="tel:+48600123456">+48 600 123 456</a></p>
+          <p>E-mail: <a href="mailto:kontakt@zoomenergia.pl">kontakt@zoomenergia.pl</a></p>
+        </div>
+        <div>
+          <form id="contactForm" action="https://formsubmit.co/kontakt@zoomenergia.pl" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="thank-you.html">
+            <label><input type="text" name="name" placeholder="Imię i nazwisko" required></label>
+            <label><input type="tel" name="phone" placeholder="Telefon" required></label>
+            <label><input type="email" name="email" placeholder="E-mail"></label>
+            <label><textarea name="message" placeholder="Krótka informacja o projekcie" rows="4"></textarea></label>
+            <button class="btn primary" type="submit">Wyślij wiadomość</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Zoom Energia — Wszelkie prawa zastrzeżone</div>
+      <div class="muted">Projekt demo — nie wpływa na stronę produkcyjną</div>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog card">
+      <button class="modal-close" id="modalClose">✕</button>
+      <h3>Zamów bezpłatną wycenę</h3>
+      <form id="modalForm" action="https://formsubmit.co/kontakt@zoomenergia.pl" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="thank-you.html">
+        <label><input type="text" name="name" placeholder="Imię i nazwisko" required></label>
+        <label><input type="tel" name="phone" placeholder="Telefon" required></label>
+        <label>
+          <select name="service">
+            <option value="fotowoltaika">Fotowoltaika</option>
+            <option value="pompa">Pompy ciepła</option>
+            <option value="hybryda">Hybryda</option>
+          </select>
+        </label>
+        <button class="btn primary" type="submit">Wyślij</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
